@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MovieReview</string>
+    <string name="image_movie_content_description">Image Movie</string>
+
+    // Home screen
+    <string name="home_screen_movie_collection_see_more_text">See more</string>
 </resources>

@@ -93,9 +93,9 @@ fun HomeTabBar(
     TabRow(
         modifier = Modifier
             .padding(
-                start = tabLayoutMargin,
-                top = tabLayoutMargin,
-                end = tabLayoutMargin,
+                start = tabLayoutPaddingLarge,
+                top = tabLayoutPaddingLarge,
+                end = tabLayoutPaddingLarge,
             )
             .clip(RoundedCornerShape(tabLayoutRadius)),
         containerColor = tabLayoutColor,
@@ -133,7 +133,7 @@ fun TabItem(
             tabLayoutTextColor
         }
         Text(
-            modifier = Modifier.padding(vertical = tabLayoutPadding),
+            modifier = Modifier.padding(vertical = tabLayoutPaddingSmall),
             text = tabSelected.title,
             color = textColor,
             style = TextStyle(
