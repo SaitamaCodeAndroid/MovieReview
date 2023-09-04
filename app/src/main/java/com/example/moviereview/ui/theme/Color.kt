@@ -10,3 +10,5 @@ val tabLayoutColor = Color(0xcc42423f)
 val tabSelectedColor = Color(0xffffffff)
 val tabSelectedTextColor = Color(0xff000000)
 val tabLayoutTextColor = Color(0xffffffff)
+
+val colorYellow = Color(0xFFF1C642)

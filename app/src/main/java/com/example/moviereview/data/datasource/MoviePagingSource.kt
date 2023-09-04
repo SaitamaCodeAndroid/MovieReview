@@ -1,31 +1,25 @@
-package com.example.moviereview.data
+package com.example.moviereview.data.datasource
 
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
-import com.example.moviereview.BuildConfig
-import com.example.moviereview.data.api.response.Movie
-import retrofit2.HttpException
-import java.io.IOException
 
+/*
 private const val START_PAGE_NUMBER = 1
-
 class MoviePagingSource(
     private val service: MovieApiService,
-): PagingSource<Int, Movie>() {
+): PagingSource<Int, MovieResponse>() {
 
-    override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, MovieResponse>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieResponse> {
         return try {
             val nextPageNumber = params.key ?: START_PAGE_NUMBER
-            val response = service.getMovies(
+            val response = service.getUpcomingMovies(
                 apiKey = BuildConfig.API_KEY,
-                pageNumber = nextPageNumber,
+                "vi"
             )
 
             LoadResult.Page(
@@ -42,4 +36,4 @@ class MoviePagingSource(
         }
     }
 
-}
+}*/

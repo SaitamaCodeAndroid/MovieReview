@@ -24,6 +24,7 @@ android {
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
         buildConfigField("String", "API_KEY", properties.getProperty("API_KEY"))
+        buildConfigField("String", "IMAGE_BASE_URL", "\"https://image.tmdb.org/t/p/w500/\"")
     }
 
     buildTypes {
@@ -78,6 +79,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.compose.material:material:1.5.0")
 
     // Koin
     // https://insert-koin.io/docs/setup/koin
@@ -109,6 +111,11 @@ dependencies {
 
     // Navigation Component
     // https://developer.android.com/jetpack/androidx/releases/navigation
-    val navVersion = "2.6.0"
+    val navVersion = "2.7.0"
     implementation("androidx.navigation:navigation-compose:$navVersion")
+
+    // Lifecycle utilities for Compose
+    // https://developer.android.com/jetpack/androidx/releases/lifecycle#kts
+    val lifecycleVersion = "2.6.1"
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:$lifecycleVersion")
 }
