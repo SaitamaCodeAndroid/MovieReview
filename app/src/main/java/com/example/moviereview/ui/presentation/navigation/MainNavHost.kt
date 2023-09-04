@@ -17,7 +17,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.moviereview.ui.presentation.home.homeScreen
-import com.example.moviereview.ui.presentation.home.tabs.searchScreen
+import com.example.moviereview.ui.presentation.search.searchScreen
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

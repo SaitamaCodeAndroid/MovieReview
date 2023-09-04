@@ -1,4 +1,4 @@
-package com.example.moviereview.data
+package com.example.moviereview.data.service
 
 /**
  * Groups constants related to Stalker API headers.
