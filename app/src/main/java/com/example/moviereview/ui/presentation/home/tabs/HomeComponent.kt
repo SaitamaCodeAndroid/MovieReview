@@ -25,17 +25,26 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.moviereview.BuildConfig
+import com.example.moviereview.R
 import com.example.moviereview.data.service.response.MovieDetails
 import com.example.moviereview.ui.theme.colorYellow
+import com.example.moviereview.ui.theme.itemHeightSmall
+import com.example.moviereview.ui.theme.itemHeightXlarge
+import com.example.moviereview.ui.theme.itemWidthSmall
+import com.example.moviereview.ui.theme.layoutPaddingLarge
+import com.example.moviereview.ui.theme.layoutPaddingSmall
+import com.example.moviereview.ui.theme.layoutPaddingTiny
+import com.example.moviereview.ui.theme.layoutPaddingXLarge
+import com.example.moviereview.ui.theme.textSizeHeaderSmall
+import com.example.moviereview.ui.theme.textSizeMedium
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -43,7 +52,7 @@ fun TopUpMovieSection(movies: List<MovieDetails>) {
     val pagerState = rememberPagerState { movies.size }
 
     HorizontalPager(
-        modifier = Modifier.padding(top = 8.dp),
+        modifier = Modifier.padding(top = layoutPaddingSmall),
         state = pagerState,
         beyondBoundsPageCount = 5,
     ) {
@@ -61,9 +70,9 @@ fun TopUpMovieSection(movies: List<MovieDetails>) {
         MovieItem(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(500.dp)
-                .padding(horizontal = 16.dp)
-                .clip(RoundedCornerShape(16.dp))
+                .height(itemHeightXlarge)
+                .padding(horizontal = layoutPaddingLarge)
+                .clip(RoundedCornerShape(layoutPaddingLarge))
                 .graphicsLayer {
                     scaleX = imageSize
                     scaleY = imageSize
@@ -79,15 +88,15 @@ fun MovieCollectionSection(
     movies: List<MovieDetails>,
 ) {
     Column(
-        modifier = Modifier.padding(top = 32.dp)
+        modifier = Modifier.padding(top = layoutPaddingXLarge)
     ) {
         Row(
-            modifier = Modifier.padding(horizontal = 8.dp),
+            modifier = Modifier.padding(horizontal = layoutPaddingSmall),
         ) {
             Text(
                 text = collectionName,
                 style = TextStyle(
-                    fontSize = 20.sp,
+                    fontSize = textSizeHeaderSmall,
                     fontWeight = FontWeight.Bold
                 )
             )
@@ -95,9 +104,9 @@ fun MovieCollectionSection(
                 modifier = Modifier
                     .fillMaxWidth()
                     .align(Alignment.Bottom),
-                text = "See More",
+                text = stringResource(id = R.string.home_screen_movie_collection_see_more_text),
                 style = TextStyle(
-                    fontSize = 16.sp,
+                    fontSize = textSizeMedium,
                     fontWeight = FontWeight.Bold,
                     color = colorYellow
                 ),
@@ -105,10 +114,10 @@ fun MovieCollectionSection(
             )
         }
         LazyRow(
-            modifier = Modifier.padding(top = 8.dp),
+            modifier = Modifier.padding(top = layoutPaddingSmall),
             contentPadding = PaddingValues(
-                start = 4.dp,
-                end = 8.dp,
+                start = layoutPaddingTiny,
+                end = layoutPaddingSmall,
             ),
         ) {
             items(movies.size) {
@@ -116,11 +125,11 @@ fun MovieCollectionSection(
                 MovieItem(
                     modifier = Modifier
                         .size(
-                            width = 130.dp,
-                            height = 180.dp
+                            width = itemWidthSmall,
+                            height = itemHeightSmall
                         )
-                        .clip(RoundedCornerShape(8.dp))
-                        .padding(start = 4.dp),
+                        .clip(RoundedCornerShape(layoutPaddingSmall))
+                        .padding(start = layoutPaddingTiny),
                     imageUrl = imageUrl,
                 )
             }
@@ -141,7 +150,7 @@ fun MovieItem(
             model = ImageRequest.Builder(LocalContext.current)
                 .data(imageUrl)
                 .build(),
-            contentDescription = "Image",
+            contentDescription = stringResource(id = R.string.image_movie_content_description),
             contentScale = ContentScale.Crop
         )
     }
